@@ -6,7 +6,7 @@
 /*   By: adoireau <adoireau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/23 12:51:53 by adoireau          #+#    #+#             */
-/*   Updated: 2025/06/24 15:39:34 by adoireau         ###   ########.fr       */
+/*   Updated: 2025/06/27 18:26:07 by adoireau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,13 @@ int main(int ac, char **av)
 		for (int i = 1; i < ac; i++)
 		{
 			for (int j = 0; av[i][j]; j++)
+			{
+				if (j == 0 && av[i][j] == ' ')
+					j++;
+				else if (!av[i][j + 1] && av[i][j] == ' ')
+					break;
 				std::cout << (char)std::toupper(av[i][j]);
+			}
 			if (i < ac - 1)
 				std::cout << ' ';
 		}
